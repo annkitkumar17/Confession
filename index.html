@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Happy Birthday, Chaya ✨</title>
+  <meta name="description" content="A little something Harsh made for your birthday.">
+  <meta name="theme-color" content="#FFF8F3">
+
+  <!-- Google Fonts: Fraunces (Editorial Serif), Plus Jakarta Sans (Clean Sans), Caveat (Handwritten Script) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Subtle Grain Texture Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Ambient Cursor Sparkle Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Floating Header & Ambient Music Control -->
+  <header class="top-nav">
+    <div class="brand-mark">
+      <span class="sparkle">✦</span>
+      <span id="brand-her-name">Chaya</span>
+    </div>
+
+    <!-- Chapter Breadcrumb / Status -->
+    <div class="chapter-indicator" id="chapter-indicator">
+      Chapter <span id="current-chapter-num">1</span> of 4
+    </div>
+    
+    <button id="sound-toggle-btn" class="sound-toggle-btn" aria-label="Toggle ambient melody">
+      <div class="sound-bars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span id="sound-toggle-text">Music: Off</span>
+    </button>
+  </header>
+
+  <!-- Side Chapter Progress Rail (Desktop) -->
+  <nav class="progress-rail" aria-label="Story Chapters">
+    <li class="progress-dot active" data-index="1" title="Chapter 1: The Envelope">
+      <span class="progress-tooltip">For You</span>
+    </li>
+    <li class="progress-dot locked" data-index="2" title="Chapter 2: The Question">
+      <span class="progress-tooltip">The Question</span>
+    </li>
+    <li class="progress-dot locked" data-index="3" title="Chapter 3: The Letter">
+      <span class="progress-tooltip">Love Letter</span>
+    </li>
+    <li class="progress-dot locked" data-index="4" title="Chapter 4: Make a Wish">
+      <span class="progress-tooltip">Make a Wish</span>
+    </li>
+  </nav>
+
+  <!-- MAIN PAGINATED STORY VIEWPORT (Strict interaction-gated progression) -->
+  <div class="story-viewport">
+
+    <!-- ====================================================================
+         SCENE 1: ENVELOPE OPENING (Chapter 1)
+         ==================================================================== -->
+    <section id="scene-envelope" class="scene-page active" data-scene="1">
+      <div class="scene-container">
+        <span id="env-badge" class="editorial-badge">A LITTLE SOMETHING FOR YOU</span>
+        <h1 id="env-headline" class="headline-serif">For <em>Chaya</em></h1>
+        <p id="env-subtext" class="subtext-editorial">A little something I made for your birthday.</p>
+
+        <!-- 3D Realistic Envelope -->
+        <div class="envelope-stage">
+          <div id="envelope-card" class="envelope-wrapper" role="button" tabindex="0" aria-label="Open birthday envelope">
+            
+            <!-- Envelope Back Base -->
+            <div class="envelope-back"></div>
+
+            <!-- Inner Letter Card tucked inside -->
+            <div class="envelope-letter">
+              <div class="card-monogram">C</div>
+              <div id="letter-teaser" class="card-teaser">Happy Birthday, Chaya</div>
+            </div>
+
+            <!-- Envelope Pocket (Side & Bottom Folds) -->
+            <div class="envelope-pocket">
+              <svg viewBox="0 0 440 290" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="pocketLeftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FBF3EC"/>
+                    <stop offset="100%" stop-color="#EFE2D8"/>
+                  </linearGradient>
+                  <linearGradient id="pocketBottomGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" stop-color="#F7ECE3"/>
+                    <stop offset="100%" stop-color="#E7D8CD"/>
+                  </linearGradient>
+                </defs>
+                <!-- Left Flap Fold -->
+                <polygon points="0,0 220,155 0,290" fill="url(#pocketLeftGrad)" opacity="0.95"/>
+                <!-- Right Flap Fold -->
+                <polygon points="440,0 220,155 440,290" fill="url(#pocketLeftGrad)" opacity="0.95"/>
+                <!-- Bottom Flap Fold -->
+                <polygon points="0,290 220,140 440,290" fill="url(#pocketBottomGrad)"/>
+              </svg>
+            </div>
+
+            <!-- Envelope Top Triangular Flap (Flips open in 3D) -->
+            <div class="envelope-flap">
+              <svg viewBox="0 0 440 174" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="topFlapGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" stop-color="#FAF1E8"/>
+                    <stop offset="100%" stop-color="#EAD9CD"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="0,0 440,0 220,174" fill="url(#topFlapGrad)"/>
+              </svg>
+
+              <!-- Wax Seal centered on the flap tip -->
+              <div id="wax-seal" class="wax-seal" title="Click to break the seal">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="envelope-hint">
+            <span class="sparkle">✦</span>
+            <span id="env-prompt">Tap the seal to open</span>
+            <span class="sparkle">✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SCENE 2: THE QUESTION & PLAYFUL "NO" (Chapter 2)
+         ==================================================================== -->
+    <section id="scene-question" class="scene-page" data-scene="2">
+      <div class="scene-container">
+        <div class="question-card">
+          <p id="question-intro" class="question-intro">Before I wish you happy birthday…</p>
+          <h2 id="question-title" class="question-title">Will you let me celebrate you today?</h2>
+
+          <div id="button-arena" class="button-arena">
+            <!-- Escalating Playful Toast -->
+            <div id="playful-toast" class="playful-toast" role="status" aria-live="polite">
+              Rude. Try again.
+            </div>
+
+            <!-- Yes Button -->
+            <button id="btn-yes" class="btn-primary-yes">
+              <span>Yes, obviously</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </button>
+
+            <!-- Playful Runaway No Button -->
+            <button id="btn-no" class="btn-secondary-no">
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SCENE 3: BIRTHDAY LETTER CARD (Chapter 3)
+         ==================================================================== -->
+    <section id="scene-letter" class="scene-page" data-scene="3">
+      <div class="scene-container">
+        <span id="letter-badge" class="editorial-badge">A LOVE LETTER</span>
+
+        <article class="letter-sheet">
+          <!-- Postal corner stamp motif -->
+          <div class="letter-stamp" aria-hidden="true">
+            <span>LOVE</span>
+          </div>
+
+          <h2 id="letter-greeting" class="letter-header">Happy Birthday, Chaya.</h2>
+
+          <div id="letter-body" class="letter-body">
+            <p>I hope today feels as special as you make ordinary days feel.</p>
+            <p>Keep smiling, because your smile is genuinely something special.</p>
+            <p>I hope this year brings you everything you quietly wish for—and a few beautiful surprises too.</p>
+          </div>
+
+          <div class="letter-signoff">
+            <span id="signoff-intro" class="signoff-intro">With too much love,</span>
+            <span id="signoff-name" class="signoff-name">Harsh</span>
+          </div>
+
+          <!-- Interaction button required to move to Chapter 4 -->
+          <div class="letter-action-row">
+            <button id="btn-next-to-wish" class="btn-letter-continue">
+              <span>One last surprise for you ✨</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SCENE 4: FINAL CELEBRATION & MAKE A WISH (Chapter 4)
+         ==================================================================== -->
+    <section id="scene-celebration" class="scene-page" data-scene="4">
+      <div class="scene-container celebration-content">
+        
+        <!-- Interactive Birthday Candle -->
+        <div id="candle-stage" class="candle-stage" title="Tap to blow out the candle">
+          <div class="candle-flame-container">
+            <div class="candle-flame"></div>
+          </div>
+          <div class="candle-wick"></div>
+          <div class="candle-body"></div>
+        </div>
+
+        <h1 id="cel-title" class="headline-serif">Happy Birthday, <em>Chaya</em> 🎂</h1>
+        <p id="cel-subtext" class="subtext-editorial">Close your eyes, make a silent wish, and blow out the candle.</p>
+
+        <button id="btn-wish" class="btn-wish">
+          <span>Make a wish ✨</span>
+        </button>
+
+        <div id="wish-reveal-box" class="wish-reveal-box">
+          <h3 id="wish-title" class="wish-reveal-title">Wish granted. I’ll be here for all of them.</h3>
+          <p id="wish-subtext" class="wish-reveal-subtext">May this year be the softest, brightest, most unforgettable chapter yet.</p>
+        </div>
+      </div>
+
+      <!-- Thoughtful subtle footer -->
+      <footer class="site-footer">
+        <p id="footer-text" class="footer-quote">Made with love, bad jokes, and a little too much thought. — Harsh</p>
+      </footer>
+    </section>
+
+  </div>
+
+  <!-- Bottom Previous Chapter Pill (allows going back to re-read unlocked scenes) -->
+  <div id="nav-back-container" class="nav-back-container" style="display: none;">
+    <button id="btn-nav-back" class="btn-nav-back" aria-label="Previous Chapter">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5"></path>
+        <path d="M12 19l-7-7 7-7"></path>
+      </svg>
+      <span>Back</span>
+    </button>
+  </div>
+
+  <!-- Confetti script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <!-- Configuration -->
+  <script src="config.js"></script>
+  <!-- Main Interactive Experience Engine -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "birthday-surprise-website",
+  "version": "1.0.0",
+  "description": "A premium, fully responsive, mobile-first one-page birthday surprise website.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "birthday",
+    "love-letter",
+    "interactive",
+    "storytelling",
+    "celebration"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

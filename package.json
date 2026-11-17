@@ -4,7 +4,7 @@
   "private": true,
   "description": "A premium, fully responsive, mobile-first birthday surprise website for Chaya by Harsh.",
   "scripts": {
-    "build": "echo 'Static assets ready'",
+    "build": "node build.js",
     "dev": "node server.js",
     "start": "node server.js"
   },

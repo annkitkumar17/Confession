@@ -16,3 +16,4 @@ files.forEach(file => {
 });
 
 console.log('✅ Build completed: static assets prepared in public/');
+
